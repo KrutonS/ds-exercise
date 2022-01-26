@@ -6,6 +6,7 @@
 ////
 //// @group Button
 /// ### Exposed Button settings
+/// #### component selector: `.btn`
 ////
 
 $paddings: assignSizes((4pt 12pt, 8pt 16pt, 8pt 20pt));
@@ -18,14 +19,17 @@ $prefix: $main-prefix + "-button-";
 ///
 /// CSS Variable: `--desu-button-color`
 $color: var(--#{$prefix}color, $color-neutral-max);
+
 /// Background of Buttons
 ///
 /// CSS Variable: `--desu-button-background`
 $background: var(--#{$prefix}background, $color-primary);
+
 /// background color when hover
 ///
 /// CSS Variable: `--desu-button-background-hover`
 $background-hover: var(--#{$prefix}background-hover, $color-primary-1);
+
 /// background color when clicked
 ///
 /// CSS Variable: `--desu-button-background-active`
