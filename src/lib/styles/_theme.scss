@@ -1,15 +1,16 @@
-// Można by też stworzyć funkcję która oblicza kolejne odcienie danego koloru
+// Można by też stworzyć funkcję która oblicza kolejne odcienie danego koloru, itp
+@use 'v' as *;
 
-$color-primary2: hsl(201, 100%, 73%);
-$color-primary1: hsl(200, 100%, 48%);
-$color-primary: hsl(193, 100%, 26%);
-$color-primary-1: hsl(207, 100%, 26%);
-$color-primary-2: hsl(213, 100%, 18%);
+$color-primary2: 		var(--#{$main-prefix}-color-primary2, 	hsl(201, 100%, 73%));
+$color-primary1:	 	var(--#{$main-prefix}-color-primary1, 	hsl(200, 100%, 48%));
+$color-primary: 		var(--#{$main-prefix}-color-primary, 		hsl(193, 100%, 26%));
+$color-primary-1: 	var(--#{$main-prefix}-color-primary-1, 	hsl(207, 100%, 26%));
+$color-primary-2: 	var(--#{$main-prefix}-color-primary-2, 	hsl(213, 100%, 18%));
 
 // $color-secondary: adjust-color($color-primary, $hue: 60deg);
 // $color-tertiary: adjust-color($color-primary, $hue: -60deg);
 
-$color-neutral-max: white;
-$color-neutral: hsl(210, 5%, 92%);
-$color-neutral-1: rgb(179, 180, 186);
-$color-neutral-min: black;
+$color-neutral-max: 	var(--#{$main-prefix}-color-neutral-max,	white);
+$color-neutral: 			var(--#{$main-prefix}-color-neutral, 			hsl(210, 5%, 92%));
+$color-neutral-1: 		var(--#{$main-prefix}-color-neutral-1, 		rgb(179, 180, 186));
+$color-neutral-min: 	var(--#{$main-prefix}-color-neutral-min,	black);

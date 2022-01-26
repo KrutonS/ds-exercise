@@ -1,15 +1,19 @@
-@use "../../styles/theme" as *;
 @use "../../styles/utils" as *;
+@use "../../styles/theme" as *;
+@use "../../styles/v" as *;
+@use "sass:list";
 @use "sass:map";
 
 $paddings: assignSizes((4pt 12pt, 8pt 16pt, 8pt 20pt));
 $font-sizes: assignSizes((12pt, 14pt, 16pt));
 $heights: assignSizes((24pt, 32pt, 40pt));
 
-$color: $color-neutral-max !default;
-$background: $color-primary !default;
-$background-hover: $color-primary-1 !default;
-$background-active: $color-primary-2 !default;
+$prefix: $main-prefix + "-button-";
+
+$color: var(--#{$prefix}color, $color-neutral-max);
+$background: var(--#{$prefix}background, $color-primary);
+$background-hover: var(--#{$prefix}background-hover, $color-primary-1);
+$background-active: var(--#{$prefix}background-active, $color-primary-2);
 
 .btn {
   @extend %button-reset;

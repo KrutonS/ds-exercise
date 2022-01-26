@@ -1,4 +1,6 @@
 // @use './styles';
+@use "sass:list";
+@use "sass:map";
+@use "sass:color";
+
 @use "./components";
-@use "./styles/theme";
-@use "./styles/utils";

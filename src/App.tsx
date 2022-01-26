@@ -3,9 +3,9 @@ import Button from "./lib/components/Button/Button";
 function App() {
   return (
     <main>
-      <Button size="s">mały</Button>
-      <Button size="m">średni</Button>
-      <Button size="l">duży</Button>
+      <Button size="s">Przycisk</Button>
+      <Button size="m">Przycisk</Button>
+      <Button size="l">Przycisk</Button>
     </main>
   );
 }
