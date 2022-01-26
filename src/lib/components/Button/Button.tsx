@@ -19,12 +19,23 @@ interface ReactProps {
 
 type Props<T> = ReactProps & GetElementProps<T>;
 
-const Button = <T extends ButtonProps | LinkProps>({
+/**
+ * Reusable Button Component
+ * @param size size of the Button, default is m
+ * @param href if specified, will return anchor element and switch other props to anchor attributes
+ * @param children any valid JSX element
+ * @param className additional class for component
+ *
+ * @returns Button as a button or anchor element
+ * @example
+ * <Button size="s" onClick={()=>console.log("echo!")}>Przycisk</Button>
+ */
+function Button<T extends ButtonProps | LinkProps>({
   children,
   className,
   size = "m",
   ...otherProps
-}: Props<T>): ReactElement => {
+}: Props<T>): ReactElement {
   const commonClass = cn("btn", `btn--${size}`, className);
 
   if ("href" in otherProps) {
@@ -40,6 +51,6 @@ const Button = <T extends ButtonProps | LinkProps>({
       {children}
     </button>
   );
-};
+}
 
 export default Button;
