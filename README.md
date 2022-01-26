@@ -4,4 +4,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Design system built with sass and React
 
+### To start the project, clone it, run `npm install`, and then `npm start`
+
 For the docs check the `docs` and `sassdoc` folders
