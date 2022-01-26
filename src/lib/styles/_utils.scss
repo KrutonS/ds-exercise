@@ -1,8 +1,15 @@
 @use "sass:list";
 @use "sass:map";
 
+/// All available sizes
 $sizeKeys: ("s", "m", "l");
 
+/// Joins all available sizes with provided list
+/// @param {List} $toValues - List of values to merge sizes with
+/// @returns {Map} with sizes as keys and provided map as values
+/// @see $sizeKeys as keys and values of delivered list
+/// @example assignSizes(4pt,8pt,8pt);
+/// Will return map (s:4pt, m:8pt, l:8pt)
 @function assignSizes($toValues) {
   $result: ();
   @for $i from 1 through length($sizeKeys) {
@@ -10,7 +17,6 @@ $sizeKeys: ("s", "m", "l");
     $value: list.nth($toValues, $i);
     $result: map.set($result, $key, $value);
   }
-  @debug $result;
   @return $result;
 }
 

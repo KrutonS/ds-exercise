@@ -1,10 +1,32 @@
-// Można by też stworzyć funkcję która oblicza kolejne odcienie danego koloru, itp
 @use 'v' as *;
+////
+/// @group Theme
+/// ###	List of theme colors. You can change them using exposed CSS Variables
+////
 
+
+// Można by też stworzyć funkcję która na przykład oblicza kolejne odcienie danego koloru
+
+
+/// primary color with tint 2
+///
+/// CSS Variable: `--desu-color-primary2` 
 $color-primary2: 		var(--#{$main-prefix}-color-primary2, 	hsl(201, 100%, 73%));
+/// primary color with tint 1
+///
+/// CSS Variable: `--desu-color-primary1` 
 $color-primary1:	 	var(--#{$main-prefix}-color-primary1, 	hsl(200, 100%, 48%));
+/// primary color
+///
+/// CSS Variable: `--desu-color-primary` 
 $color-primary: 		var(--#{$main-prefix}-color-primary, 		hsl(193, 100%, 26%));
+/// primary color with shade 1
+///
+/// CSS Variable: `--desu-color-primary-1` 
 $color-primary-1: 	var(--#{$main-prefix}-color-primary-1, 	hsl(207, 100%, 26%));
+/// primary color with shade 2
+///
+/// CSS Variable: `--desu-color-primary-2` 
 $color-primary-2: 	var(--#{$main-prefix}-color-primary-2, 	hsl(213, 100%, 18%));
 
 // $color-secondary: adjust-color($color-primary, $hue: 60deg);
