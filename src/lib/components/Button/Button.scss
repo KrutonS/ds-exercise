@@ -1,0 +1,36 @@
+@use "../../styles/theme" as *;
+@use "../../styles/utils" as *;
+@use "sass:map";
+
+$paddings: assignSizes((4pt 12pt, 8pt 16pt, 8pt 20pt));
+$font-sizes: assignSizes((12pt, 14pt, 16pt));
+$heights: assignSizes((24pt, 32pt, 40pt));
+
+$color: $color-neutral-max !default;
+$background: $color-primary !default;
+$background-hover: $color-primary-1 !default;
+$background-active: $color-primary-2 !default;
+
+.btn {
+  @extend %button-reset;
+  background: $background;
+  color: $color;
+
+  &:hover {
+    background: $background-hover;
+  }
+  &:active {
+    background: $background-active;
+  }
+  &:focus-visible {
+    outline-offset: -3pt;
+    outline: 1px solid $color;
+  }
+  @each $size in $sizeKeys {
+    &--#{$size} {
+      padding: map.get($paddings, $size);
+      font-size: map.get($font-sizes, $size);
+      height: map.get($heights, $size);
+    }
+  }
+}

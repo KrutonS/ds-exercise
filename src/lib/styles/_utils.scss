@@ -1,0 +1,33 @@
+@use "sass:list";
+@use "sass:map";
+
+$sizeKeys: ("s", "m", "l");
+
+@function assignSizes($toValues) {
+  $result: ();
+  @for $i from 1 through length($sizeKeys) {
+    $key: list.nth($sizeKeys, $i);
+    $value: list.nth($toValues, $i);
+    $result: map.set($result, $key, $value);
+  }
+  @debug $result;
+  @return $result;
+}
+
+// #region Resets
+%text-reset {
+  font-size: inherit;
+  font-family: inherit;
+  letter-spacing: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  color: inherit;
+}
+
+%button-reset {
+  @extend %text-reset;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+// #endregion
