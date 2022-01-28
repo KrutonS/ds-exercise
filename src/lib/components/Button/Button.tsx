@@ -28,6 +28,8 @@ type Props<T> = ReactProps & GetElementProps<T>;
  * @param children any valid JSX element
  * @param className additional class for component
  * @param ref forwarded ref of button or anchor
+ *
+ * `and all valid attributes of button or anchor`
  * @returns Button as a button or anchor element
  * @example
  * <Button size="s" onClick={()=>console.log("echo!")}>Przycisk</Button>

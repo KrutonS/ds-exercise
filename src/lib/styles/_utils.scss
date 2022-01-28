@@ -6,8 +6,8 @@ $sizeKeys: ("s", "m", "l");
 
 /// Joins all available sizes with provided list
 /// @param {List} $toValues - List of values to merge sizes with
-/// @returns {Map} with sizes as keys and provided map as values
-/// @see $sizeKeys as keys and values of delivered list
+/// @returns {Map} with sizeKeys as keys and provided map as values
+/// @see $sizeKeys
 /// @example assignSizes(4pt,8pt,8pt);
 /// Will return map (s:4pt, m:8pt, l:8pt)
 @function assignSizes($toValues) {
