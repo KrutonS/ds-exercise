@@ -1,5 +1,5 @@
 import cn from "classnames";
-import { ReactElement } from "react";
+import { ForwardedRef, forwardRef, ReactElement } from "react";
 import { AnchorHTMLAttributes, ButtonHTMLAttributes } from "react";
 import { Sizes } from "../../types";
 
@@ -10,8 +10,10 @@ type ButtonProps = {
 type LinkProps = { href: string } & AnchorHTMLAttributes<HTMLAnchorElement>;
 
 type GetElementProps<
-  T extends ButtonProps | LinkProps = ButtonProps | LinkProps
-> = T extends Pick<LinkProps, "href"> ? LinkProps : ButtonProps;
+  T extends ButtonProps | LinkProps = ButtonProps | LinkProps,
+  LinkOpt = LinkProps,
+  BtnOpt = ButtonProps
+> = T extends Pick<LinkProps, "href"> ? LinkOpt : BtnOpt;
 
 interface ReactProps {
   size?: Sizes;
@@ -25,32 +27,38 @@ type Props<T> = ReactProps & GetElementProps<T>;
  * @param href if specified, will return anchor element and switch other props to anchor attributes
  * @param children any valid JSX element
  * @param className additional class for component
- *
+ * @param ref forwarded ref of button or anchor
  * @returns Button as a button or anchor element
  * @example
  * <Button size="s" onClick={()=>console.log("echo!")}>Przycisk</Button>
  */
-function Button<T extends ButtonProps | LinkProps>({
-  children,
-  className,
-  size = "m",
-  ...otherProps
-}: Props<T>): ReactElement {
+function ButtonInner<T extends ButtonProps | LinkProps>(
+  { children, className, size = "m", ...otherProps }: Props<T>,
+  ref: ForwardedRef<GetElementProps<T, HTMLAnchorElement, HTMLButtonElement>>
+): ReactElement {
   const commonClass = cn("btn", `btn--${size}`, className);
-
   if ("href" in otherProps) {
     return (
-      <a {...(otherProps as LinkProps)} className={commonClass}>
+      <a
+        {...(otherProps as LinkProps)}
+        className={commonClass}
+        ref={ref as ForwardedRef<HTMLAnchorElement>}
+      >
         {children}
       </a>
     );
   }
 
   return (
-    <button {...(otherProps as ButtonProps)} className={commonClass}>
+    <button
+      {...(otherProps as ButtonProps)}
+      className={commonClass}
+      ref={ref as ForwardedRef<HTMLButtonElement>}
+    >
       {children}
     </button>
   );
 }
 
+const Button = forwardRef(ButtonInner);
 export default Button;
